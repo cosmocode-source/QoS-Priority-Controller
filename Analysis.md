@@ -69,3 +69,7 @@
 
 ---
 
+## Case 8: Thourghput 
+
+
+![Thoughtput per datapath](screenshots/29.png)
