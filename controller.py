@@ -8,10 +8,9 @@ from ryu.base import app_manager
 from ryu.controller import ofp_event
 from ryu.controller.handler import CONFIG_DISPATCHER, MAIN_DISPATCHER, set_ev_cls
 from ryu.ofproto import ofproto_v1_3
-from ryu.lib.packet import packet, ethernet, ipv4, tcp, arp
+from ryu.lib.packet import packet, ethernet, ipv4, tcp
 from ryu.lib import hub
 import time
-import random
 
 class FinalController(app_manager.RyuApp):
     OFP_VERSIONS = [ofproto_v1_3.OFP_VERSION]
@@ -69,7 +68,7 @@ class FinalController(app_manager.RyuApp):
     # ------------------------------------------------------------
     # FLOW INSTALLATION: Adds rules to the Switch Flow Table
     # ------------------------------------------------------------
-    def add_flow(self, dp, priority, match, actions, idle=10, hard=30):
+    def add_flow(self, dp, priority, match, actions, idle=60, hard=120):
         """ 
         Configures match-action rules. 
         idle_timeout: Removes rule if no traffic for X seconds.
@@ -150,7 +149,7 @@ class FinalController(app_manager.RyuApp):
         # --- RULE INSTALLATION & PACKET STATISTICS ---
         if out_port != ofproto.OFPP_FLOOD:
             match = parser.OFPMatch(in_port=in_port, eth_dst=eth.dst, eth_src=eth.src)
-            # Install flow with 10s idle and 30s hard timeouts
+            # Install flow with 60s idle and 120s hard timeouts
             self.add_flow(dp, priority, match, actions, 60, 120)
             
             if ip_pkt:
