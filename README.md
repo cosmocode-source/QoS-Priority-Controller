@@ -2,6 +2,8 @@
 ## 📌 Project Objective & Problem Statement
 In traditional networks, all traffic is treated equally, leading to congestion where critical services compete with low-priority data. Furthermore, traditional switches lack dynamic security policies. 
 
+### Check out the analysis.md for proof of work and ss of the outputs.
+
 The objective of this project is to build a **Software-Defined Networking (SDN) Controller** that intelligently manages a network by combining four core functions:
 1. **L2 Forwarding:** Dynamically learning MAC addresses.
 2. **Stateful Firewall:** Enforcing access control and host isolation.
