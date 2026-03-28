@@ -1,4 +1,4 @@
-# SoQ-Priority-Controller
+# QoS-Priority-Controller
 ## 📌 Project Objective & Problem Statement
 In traditional networks, all traffic is treated equally, leading to congestion where critical services compete with low-priority data. Furthermore, traditional switches lack dynamic security policies. 
 
